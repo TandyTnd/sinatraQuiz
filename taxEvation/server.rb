@@ -6,6 +6,8 @@ URL = 'https://kss1ggcwh4.execute-api.us-west-2.amazonaws.com/default/books'
 BASE = 'https://3r690kl9q2.execute-api.us-east-1.amazonaws.com/default/Question'
 
 lambdaCheckAnswer = "https://t4upfkbyug.execute-api.us-east-1.amazonaws.com/default/checkAnswer"
+lambdaHighscore = "https://8reoi7vn9l.execute-api.us-east-1.amazonaws.com/default/HighScore"
+
 
 POSIBLE = [0,1,2]
 
@@ -68,3 +70,21 @@ end
 
 
 
+post'/iniciaQuiz' do
+  @answer = params[:customRange1]
+  "Hello #{@answer}"
+  #redirect '/checkAnswer/0/'+ @answer
+end
+
+
+get'/highscore' do
+    connection = Faraday.new(url:lambdaHighscore)
+    response = connection.get
+    @highscores = []
+    
+    if response.success?
+      @highscores = JSON.parse(response.body)
+    end
+    puts @highscores
+    erb :highscore
+end

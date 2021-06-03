@@ -44,12 +44,14 @@
                         
                     </div>
                 </div>
+                
+                <form method="post" action="/submitAnswer">
+
                 <div class="question bg-white p-3 border-bottom">
                     <div class="d-flex flex-row align-items-center question-title">
                         <h3 class="text-danger">Q.</h3>
                         <h5 class="mt-1 ml-2"><%= @question %></h5>
                     </div>
-                    <form method="post" action="/submitAnswer">
                     <% @answers.each do |answer| %>
                     <div class="ans ml-2">
                         <input type = "radio" class="btn-check" name = "option" id=<%= answer %> value=<%= answer %>>

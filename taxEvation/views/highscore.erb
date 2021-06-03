@@ -31,27 +31,32 @@
   </div>
 </nav>
     <h1 class="visually-hidden">Heroes examples</h1>
-
-  <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="/sinatra.jpeg" alt="" width="200" height="138">
-    
-    <form method="post" action="/iniciaQuiz">
-
-    <h1 class="display-5 fw-bold">Iniciar Quiz</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">En el siguiente quiz evaluaremos tus conocimientos sobre patrones de diseño y refactorización de software en Ruby.</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="submit" class="btn btn-danger btn-lg px-4 gap-3">Iniciar Quiz</button>
-      </div>
+      <h1 class="display-5 fw-bold">Puntuaciones Altas</h1>
       
-      <div class="form-group">
-    <input type="email" class="form-control" id="idUsuario" aria-describedby="emailHelp" placeholder="Inserte su nombre">
-  </div>
-           <label for="customRange1" class="form-label"><h4>Selecciona cuantas preguntas quieres contestar</h4></label>
-<input type="range" class="form-range" id="customRange1" onchange="rangePrimary.value=value" min = 1 max = 10 name = "customRange1">
+      
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Resultados</th>
+      <th scope="col">Tiempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <% @highscores.each do |highscore| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= highscore['User'] %></td>
+      <td><%= highscore['Right']%></td>
+      <td><%= (highscore['Time'] / 60) %> : <%= highscore['Time'] % 60 %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<input class="form-control" id="rangePrimary" type="text" placeholder="" disabled>
-  </form>
+
     </div>
   </div>
   </body>
