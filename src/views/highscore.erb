@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  
+  
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    
+  <nav class="navbar navbar-expand-lg navbar-light bg-danger" style="background-color: #e3f2fd;">
+    <div class="container-fluid"> <strong>Quiz de Ruby  </strong> </p> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/highscore">Highscore</a>
+        </li>
+    </div>
+  </div>
+</nav>
+    <h1 class="visually-hidden">Heroes examples</h1>
+      <h1 class="display-5 fw-bold">Puntuaciones Altas</h1>
+      
+      
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Resultados</th>
+      <th scope="col">Tiempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% counter = 0%>
+    <% @highscores.each do |highscore| %>
+    <% counter += 1 %>
+    <tr>
+      <th scope="row"><%=counter%></th>
+      <td><%= highscore['User'] %></td>
+      <td><%= highscore['Right']%> / <%= highscore['Total'] %></td>
+      <td><%= (highscore['Time'] / 60) %> : <%= highscore['Time'] % 60 %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+    </div>
+  </div>
+  </body>
+</html>
+
+
