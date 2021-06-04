@@ -118,7 +118,7 @@ post'/iniciaQuiz' do
   session[:cantidadPreguntas] = cantidadPreguntas
   session[:preguntaActual] = 1
   session[:score] = 0
-  b = (0..2).to_a
+  b = (0..49).to_a
   session[:listaPreguntas] = b.sample(cantidadPreguntas)
   primerPregunta = session[:listaPreguntas].pop
   

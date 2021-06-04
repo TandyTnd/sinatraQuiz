@@ -1,0 +1,199 @@
+- question: The creator of the Ruby language
+  answer: 2
+  completeAnswer: Yukihiro Matsumoto
+- question: Ruby se creó en este año
+  answer: 1
+  completeAnswer: 1993
+- question: Ruby soporta nil en lugar de nul
+  answer: 1
+  completeAnswer: Si
+- question: Sinatra es un ejemplo de este patrón de diseño
+  answer: 3
+  completeAnswer: DSL
+- question: Ruby soporta recolección de basura
+  answer: 1
+  completeAnswer: Si
+- question: Es el manejador de paquetes de ruby 
+  answer: 1
+  completeAnswer: gem
+- question: Patrón de diseño que restringe la creación de instancias de una clase a un único objeto
+  answer: 3
+  completeAnswer: Singleton
+- question: Patrón de diseño que permite emparejar 2 interfaces no compatibles
+  answer: 2
+  completeAnswer: Adapter
+- question: Qué pasa si un microservicio cae?
+  answer: 2
+  completeAnswer: Sólo se pierde el servicio relacionado a ese microservicio.
+- question: Patrón de diseño que permite a un objeto subscribirse a otro objeto
+  answer: 4
+  completeAnswer: Observer
+- question: Característica de un servicio monolítico
+  answer: 2
+  completeAnswer:  cada cambio requiere que el proyecto sea reconstruido y desplegado por completo
+
+- question: ¿Un anti patrón muestra una buena solución para un problema?
+  answer: 2
+  completeAnswer: Falso
+
+- question: Patrón que permite construir diferentes representaciones de un objeto con el mismo código
+  answer: 1
+  completeAnswer: Builder
+
+- question:  ¿Qué significa la S en el acrónimo SOLID?
+  answer: 3
+  completeAnswer: Single Responsibility Principle
+
+- question:  ¿Qué significa la O en el acrónimo SOLID?
+  answer: 4
+  completeAnswer: Open/Closed Principle
+
+- question:  ¿Qué significa la L en el acrónimo SOLID?
+  answer: 1
+  completeAnswer: Liskov Substitution Principle
+
+- question:  ¿Qué significa la I en el acrónimo SOLID?
+  answer: 3
+  completeAnswer: Interface Segregation Principle
+
+- question:  ¿Qué significa la D en el acrónimo SOLID?
+  answer: 4
+  completeAnswer: Dependency Inversion Principle
+
+- question: Antipatrón de diseño en el que se quiere preparar una clase para todo caso
+  answer: 4
+  completeAnswer: Swiss Army Knife
+
+- question:  ¿En qué consiste “single responsibility principle”?
+  answer: 3
+  completeAnswer: Una clase debe tener exactamente una responsabilidad.
+
+- question: Patrón de diseño que permite delegar la instanciación de una clase a sus subclases
+  answer: 1
+  completeAnswer: Factory Method
+
+- question:  ¿En qué consiste “Open/Closed Principle”?
+  answer: 2
+  completeAnswer: La clase debe estar abierta a extensión pero no modificación. 
+
+- question: Author of the book Design Patterns in Ruby
+  answer: 2
+  completeAnswer: Russ Olsen
+
+- question:  ¿En qué consiste “Liskov Substitution Principle”?
+  answer: 1
+  completeAnswer: Debes poder reemplazar una clase hija sin problemas
+
+- question:  ¿En qué consiste “Interface Segregation Principle”?
+  answer: 3
+  completeAnswer: Evitar escribir interfases con responsabilidades que no necesitan o quieren    
+
+- question: Patrón de diseño utilizado por la librería FXRuby GUI
+  answer: 3
+  completeAnswer: Composite
+
+- question:  ¿En qué consiste “Dependency Inversion Principle”?
+  answer: 4
+  completeAnswer: Depender de abstracciones y no de cosas concretas
+
+- question: Patrón de diseño utilizado por la librería FXRuby GUI
+  answer: 1
+  completeAnswer: Iterator
+
+- question: Se convirtió en la primera supervisora afroamericana en la NACA
+  answer: 3
+  completeAnswer: Dorothy Vaughan
+
+- question: Se convirtió en la primera ingeniera afroamericana en la NASA
+  answer: 4
+  completeAnswer: Mary Jackson
+
+- question: ¿Cuántas pizzas se necesitan para alimentar a un equipo grande de microservicios?
+  answer: 2
+  completeAnswer: 2
+
+- question:  Los proponentes de microservicios proponen
+  answer: 1
+  completeAnswer: productos
+
+- question: Antipatrón en el que una solución se quiere aplicar a todos los problemas
+  answer: 4
+  completeAnswer: Golden Hammer
+
+
+- question:  Los microservicios están diseñados para fallar?
+  answer: 1
+  completeAnswer: Si
+  
+
+- question: ¿Para qué sirven los diagramas?
+  answer: 4
+  completeAnswer: Comunicación con los demás
+
+- question:  Patrón que permite agregar responsabilidades dinámicamente
+  answer: 1
+  completeAnswer: Decorator
+
+
+- question: ¿Un  diagrama debería tener todos los detalles?
+  answer: 2
+  completeAnswer: No, solo los más importantes.
+
+
+- question: ¿El diagrama debería ser considerado como un diseño final?
+  answer: 2
+  completeAnswer: No es solo un sketch
+
+
+- question: ¿Que era una computadora humana?
+  answer: 2
+  completeAnswer: Personas que hacian operaciones matematicas
+
+- question:  ¿Qué es the blob?
+  answer: 4
+  completeAnswer: Una clase que monopoliza y consume todo el sistema
+
+
+- question: Es un patrón que provee un suplente para que represente otro objeto 
+  answer: 2
+  completeAnswer: Proxy
+
+- question: ¿Sintomas y consecuencias del antipatron “the blob”? 
+  answer: 2
+  completeAnswer: Clases enormes y con 60 o más atributos
+
+
+- question: Cargar una clase creada por the blob suele ser ligero y barato en recursos.
+  answer: 2
+  completeAnswer: Falso
+
+- question: Tipo de proxy que se usa de sustituto de un objeto caro de crear 
+  answer: 1
+  completeAnswer: Virtual Proxy
+
+
+- question:  Reusar una clase de the blob Suele ser ineficiente, y extremadamente sencillo.
+  answer: 2
+  completeAnswer: Falso
+
+- question: Tipo de proxy en el que el sustituto de un objeto revisa que los objeto que quieran interactuar con su maestro tenga permiso. 
+  answer: 3
+  completeAnswer: Protective Proxy
+
+- question: El antipatron de flujo de lava suele
+  answer: 2
+  completeAnswer: Ser hecho por un solo desarrollador
+
+
+- question:  Patrón que define el esqueleto de un algoritmo y permite que subclases cambien pasos intermedios del algoritmo
+  answer: 2
+  completeAnswer: Template Method
+
+- question: Sintomas  del antipatrón  lava flow
+  answer: 4
+  completeAnswer: variables innecesarias e injustificadas. 
+
+
+- question: Causas del antipatron Cut and paste programming
+  answer: 4
+  completeAnswer: Equipo aprendiendo a usar una nueva herramienta o poco experimentado con ella.

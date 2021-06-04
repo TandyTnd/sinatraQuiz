@@ -1,0 +1,342 @@
+- question: Es el creador del lenguaje Ruby
+  Answers: 
+    - 1 Linus Torvalds
+    - 2 Yukihiro Matsumoto
+    - 3 Ariel Ortiz
+    - 4 Nico Yasawa
+  
+- question: Ruby se creo en este año
+  Answers:
+    - 1 1993
+    - 2 2005
+    - 3 1305
+    - 4 1999
+  
+- question: Ruby soporta nil en lugar de nul
+  Answers: 
+    - 1 Si
+    - 2 No
+    
+- question: Sinatra es un ejemplo de este patrón de diseño
+  Answers:
+    - 1 Abstract Factory
+    - 2 Interpreter
+    - 3 DSL
+    - 4 Visitor
+
+- question: Ruby soporta recolección de basura
+  Answers: 
+    - 1 Si
+    - 2 No
+    
+- question: Es el manejador de paquetes de ruby 
+  Answers: 
+    - 1 gem
+    - 2 apt
+    - 3 pamac
+    - 4 pip3
+
+- question: Patrón de diseño que restringe la creación de instancias de una clase a un único objeto
+  Answers:
+    - 1 Abstract Factory
+    - 2 Adapter
+    - 3 Singleton
+    - 4 Visitor
+
+- question: Patrón de diseño que permite emparejar 2 interfaces no compatibles
+  Answers:
+    - 1 Command
+    - 2 Adapter
+    - 3 Template Method
+    - 4 Visitor
+
+
+- question: Qué pasa si un microservicio cae?
+  Answers: 
+   - 1 Toda la plataforma pierde funcionalidad. 
+   - 2 Solo se pierde el servicio relacionado a ese microservicio.
+   - 3 Se pierden datos en la base de datos.
+   - 4 El datacenter se prenderá en llamas
+ 
+
+- question: Patrón de diseño que permite a un objeto subscribirse a otro objeto
+  Answers:
+    - 1 Command
+    - 2 Decorator
+    - 3 Template Method
+    - 4 Observer
+
+- question: Característica de un servicio monolítico
+  Answers :
+   - 1 están formadas por servicios pequenos
+   - 2 cada cambio requiere que el proyecto sea reconstruido y desplegado por completo
+   - 3 son fáciles de expandir
+
+- question: ¿Un anti patrón muestra una buena solución para un problema?
+  Answers:
+    - 1 Verdadero
+    - 2 Falso
+
+- question: Patrón que permite construir diferentes representaciones de un objeto con el mismo código
+  Answers: 
+    - 1 Builder
+    - 2 Abstract Factory
+    - 3 Template Method
+    - 4 Decorator
+
+- question:  ¿Qué significa la S en el acrónimo SOLID?
+  Answers: 
+    - 1 Solid
+    - 2 Security principle
+    - 3 Single Responsibility Principle
+    - 4 Sequential Principle
+
+- question:  ¿Qué significa la O en el acrónimo SOLID?
+  Answers: 
+    - 1 Overtime
+    - 2 Only closed
+    - 3 Oracle
+    - 4 Open/Closed Principle
+
+- question:  ¿Qué significa la L en el acrónimo SOLID?
+  Answers: 
+    - 1 Liskov Substitution Principle
+    - 2 Long code
+    - 3 Leviathan
+    - 4 Larry Substitution Principle
+
+- question:  ¿Qué significa la I en el acrónimo SOLID?
+  Answers: 
+    - 1 Interestelar principle
+    - 2 Interesting
+    - 3 Interface Segregation Principle
+    - 4 Internet of things
+
+- question:  ¿Qué significa la D en el acrónimo SOLID?
+  Answers: 
+    - 1 Diameter
+    - 2 DynamoDB
+    - 3 Duty principle
+    - 4 Dependency Inversion Principle
+
+- question: Antipatrón de diseño en el que se quiere preparar una clase para todo caso
+  Answers:
+    - 1 The Blob
+    - 2 Poltergeist
+    - 3 The Golden Hammer
+    - 4 Swiss Army Knife
+
+- question:  ¿En qué consiste “single responsibility principle”?
+  Answers:
+    - 1 Una clase debe ser capaz de encargarse de todo.
+    - 2 Una clase no debe hacer nada
+    - 3 Una clase debe tener exactamente una responsabilidad.
+    - 4 La clase debe estar abierta a extensión pero no modificación. 
+
+- question: Patrón de diseño que permite delegar la instanciación de una clase a sus subclases
+  Answers:
+    - 1 Factory Method
+    - 2 Singleton
+    - 3 Command
+    - 4 Observer
+
+- question:  ¿En qué consiste “Open/Closed Principle”?
+  Answers:
+    - 1 Una clase debe ser capaz de encargarse de todo.
+    - 2 La clase debe estar abierta a extensión pero no modificación. 
+    - 3 Una clase debe tener exactamente una responsabilidad.
+    - 4 Una clase debe estar abierta a modificaciones pero no extensión. 
+
+- question: Author of the book Design Patterns in Ruby
+  Answers:
+    - 1 Honoka Kousaka
+    - 2 Russ Olsen
+    - 3 Joseph Albahari
+    - 4 Ben Albahari 
+
+
+- question:  ¿En qué consiste “Liskov Substitution Principle”?
+  Answers:
+    - 1 Debes poder reemplazar una clase hija sin problemas
+    - 2 La clase debe estar abierta a extensión pero no modificación. 
+    - 3 Una clase debe ser capaz de encargarse de todo.
+    - 4 Una clase debe estar abierta a modificaciones pero no extensión. 
+
+
+- question:  ¿En qué consiste “Interface Segregation Principle”?
+  Answers:
+    - 1 La clase debe estar abierta a extensión pero no modificación. 
+    - 2 Una clase debe estar abierta a modificaciones pero no extensión. 
+    - 3 Evitar escribir interfases con responsabilidades que no necesitan o quieren    
+    - 4 Una clase debe ser capaz de encargarse de todo.
+
+
+- question: Patrón de diseño utilizado por la librería FXRuby GUI
+  Answers:
+    - 1 Adapter
+    - 2 Proxy
+    - 3 Composite
+    - 4 Interpreter
+
+- question:  ¿En qué consiste “Dependency Inversion Principle”?
+  Answers:
+    - 1 Una clase debe estar abierta a modificaciones pero no extensión. 
+    - 2 Evitar escribir interfases con responsabilidades que no necesitan o quieren    
+    - 3  Una clase debe ser capaz de encargarse de todo.
+    - 4 Depender de abstracciones y no de cosas concretas
+    
+- question: Patrón de diseño que permite acceder a los elementos de un objeto agregado en forma secuencial 
+  Answers:
+    - 1 Iterator
+    - 2 Observer
+    - 3 Composite
+    - 4 Interpreter
+
+- question: Se convirtió en la primera supervisora afroamericana en la NACA
+  Answers:
+    - 1 Katherine Goble
+    - 2 Ayumu Uehara
+    - 3 Dorothy Vaughan
+    - 4 Mary Jackson
+
+- question: Se convirtió en la primera ingeniera afroamericana en la NASA
+  Answers:
+    - 1 Kasumi Nakasu
+    - 2 Katherine Goble
+    - 3 Dorothy Vaughan
+    - 4 Mary Jackson
+
+- question: ¿Cuántas pizzas se necesitan para alimentar a un equipo grande de microservicios?
+  Answers:
+    - 1 1
+    - 2 2
+    - 3 3
+    - 4 4
+
+- question: Los proponentes de microservicios proponen
+  Answers:
+    - 1 productos
+    - 2 Servicios
+    - 3 Proyectos
+
+
+- question: ¿Los microservicios están diseñados para fallar?
+  Answers:
+    - 1 Si
+    - 2 No
+
+- question: Antipatrón en el que una solución se quiere aplicar a todos los problemas
+  Answers:
+    - 1 The Blob
+    - 2 Spaghetti Code
+    - 3 Swiss Army Knife
+    - 4 Golden Hammer
+
+- question: ¿Para qué sirven los diagramas?
+  Answers:
+    - 1 Estetica
+    - 2 Archivarse y nunca verse
+    - 3 Uso personal
+    - 4 Comunicación con los demás
+
+- question: Patrón que permite agregar responsabilidades dinámicamente
+  Answers:
+    - 1 Decorator
+    - 2 Proxy
+    - 3 Adapter
+    - 4 Composite
+
+
+- question: ¿Un  diagrama debería tener todos los detalles?
+  Answers:
+    - 1 Si, debe tener absolutamente todo.
+    - 2 No, solo los más importantes.
+
+- question: ¿El diagrama debería ser considerado como un diseño final?
+  Answers:
+    - 1 Si, este es definitivo. 
+    - 2 No es solo un sketch
+
+
+
+- question: ¿Que era una computadora humana?
+  Answers:
+    - 1 Una persona modificada geneticamente
+    - 2 Personas que hacian operaciones matematicas
+
+
+- question: ¿Qué es the blob?
+  Answers: 
+    - 1 Una pelicula
+    - 2 Un remake de una pelicula 
+    - 3 Un mostruo
+    - 4 Una clase que monopoliza y consume todo el sistema
+
+
+- question: Es un patrón que provee un suplente para que represente otro objeto
+  Answers: 
+    - 1 Adapter
+    - 2 Proxy
+    - 3 Decorator
+    - 4 Composite
+
+- question: ¿Sintomas y consecuencias del antipatron “the blob”?
+  Answers: 
+    - 1 Clases pequeñas y fáciles de entender
+    - 2 Clases enormes y con 60 o más atributos
+    - 3 Clases medianas y bonitas
+    - 4 Código de calidad.
+
+- question: Cargar una clase creada por the blob suele ser ligero y barato en recursos.
+  Answers: 
+    - 1 Verdadero
+    - 2 Falso
+
+- question: Tipo de proxy que se usa de sustituto de un objeto caro de crear 
+  Answers: 
+    - 1 Virtual Proxy
+    - 2 Remote Proxy
+    - 3 Protective Proxy
+    - 4 Smart Proxy
+
+- question: Reusar una clase de the blob Suele ser ineficiente, y extremadamente sencillo.
+  Answers: 
+    - 1 Verdadero
+    - 2 Falso
+
+- question: Tipo de proxy en el que el sustituto de un objeto revisa que los objeto que quieran interactuar con su maestro tenga permiso. 
+  Answers: 
+    - 1 Virtual Proxy
+    - 2 Remote Proxy
+    - 3 Protective Proxy
+    - 4 Smart Proxy
+
+
+- question: El antipatron de flujo de lava suele
+  Answers: 
+    - 1 Ser Hecho por un equipo completo
+    - 2 Ser hecho por un solo desarrollador
+    - 3 Tener politicas de gestion estrictas
+    - 4 Tener solo el código necesario
+
+- question: Patrón que define el esqueleto de un algoritmo y permite que subclases cambien pasos intermedios del algoritmo
+  Answers: 
+    - 1 Adapter
+    - 2 Template Method
+    - 3 Command
+    - 4 Proxy
+
+- question: Sintomas  del antipatrón  lava flow
+  Answers: 
+    - 1 La aplicación se mantiene controlable . 
+    - 2 interfaces y headers siempre actualizados
+    - 3 Todo el código es necesario
+    - 4 variables innecesarias e injustificadas. 
+
+
+- question: Causas del antipatron Cut and paste programming
+  Answers: 
+    - 1 Codigo bien documentado. 
+    - 2 El codigo es 100% creado desde 0.
+    - 3 Equipo experimentado con la herramienta usada. 
+    - 4 Equipo aprendiendo a usar una nueva herramienta o poco experimentado con ella.
