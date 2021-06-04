@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Object - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">BasicObject
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-check_resource_by_id">#check_resource_by_id</a>
+    
+    <li ><a href="#method-i-get_resource_by_id">#get_resource_by_id</a>
+    
+    <li ><a href="#method-i-get_scores">#get_scores</a>
+    
+    <li ><a href="#method-i-handle_bad_method">#handle_bad_method</a>
+    
+    <li ><a href="#method-i-handle_bad_request">#handle_bad_request</a>
+    
+    <li ><a href="#method-i-handle_get">#handle_get</a>
+    
+    <li ><a href="#method-i-handle_post">#handle_post</a>
+    
+    <li ><a href="#method-i-lambda_handler">#lambda_handler</a>
+    
+    <li ><a href="#method-i-make_response">#make_response</a>
+    
+    <li ><a href="#method-i-make_result_list">#make_result_list</a>
+    
+    <li ><a href="#method-i-make_url">#make_url</a>
+    
+    <li ><a href="#method-i-parse_body">#parse_body</a>
+    
+    <li ><a href="#method-i-sort_items">#sort_items</a>
+    
+    <li ><a href="#method-i-store_score_item">#store_score_item</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Object">
+  <h1 id="class-Object" class="class">
+    class Object
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ANSWERS">ANSWERS
+        
+        <dd><p>Constant where the YAML file is loaded</p>
+        
+      
+        <dt id="BASE">BASE
+        
+        <dd><p><a href="Object.html#BASE"><code>BASE</code></a> URL for the microservice that gets the questions from AWS</p>
+        
+      
+        <dt id="DYNAMODB">DYNAMODB
+        
+        <dd><p>Constant that contains the dynamo client instance</p>
+        
+      
+        <dt id="QUESTIONS">QUESTIONS
+        
+        <dd><p>Constant where the YAML file is loaded</p>
+        
+      
+        <dt id="TABLE_NAME">TABLE_NAME
+        
+        <dd><p>Constant that contains the name of the table that will be used</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-check_resource_by_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_resource_by_id</span><span
+            class="method-args">(id, answer)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generates a response for the lambda to return to its client</p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>id
+<dd>
+<p>The id of the question that is being checked</p>
+</dd><dt>answer
+<dd>
+<p>the response the user gave that will be reviewed to check if it is correct</p>
+</dd></dl>
+</dd><dt>Returns
+<dd>
+<p>An object with the statusCode and a JSON that contains id, right, correct, question</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="check_resource_by_id-source">
+            <pre><span class="ruby-comment"># File src/models/checkAnswer.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check_resource_by_id</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">answer</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">ANSWERS</span>[<span class="ruby-identifier">id</span>][<span class="ruby-string">&#39;answer&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-identifier">make_response</span>(<span class="ruby-value">200</span>, {<span class="ruby-value">id:</span> <span class="ruby-identifier">id</span>, <span class="ruby-value">right:</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">correct:</span> <span class="ruby-constant">ANSWERS</span>[<span class="ruby-identifier">id</span>][<span class="ruby-string">&#39;completeAnswer&#39;</span>], <span class="ruby-value">question:</span> <span class="ruby-constant">ANSWERS</span>[<span class="ruby-identifier">id</span>][<span class="ruby-string">&#39;question&#39;</span>]})
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">make_response</span>(<span class="ruby-value">200</span>, {<span class="ruby-value">id:</span> <span class="ruby-identifier">id</span>, <span class="ruby-value">right:</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">correct:</span> <span class="ruby-constant">ANSWERS</span>[<span class="ruby-identifier">id</span>][<span class="ruby-string">&#39;completeAnswer&#39;</span>], <span class="ruby-value">question:</span> <span class="ruby-constant">ANSWERS</span>[<span class="ruby-identifier">id</span>][<span class="ruby-string">&#39;question&#39;</span>]})
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_resource_by_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_resource_by_id</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Gets a resource by its id</p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>id
+<dd>
+<p>The index of the question</p>
+</dd></dl>
+</dd><dt>Returns
+<dd>
+<p>An object containing the id, the question, and the posible answers.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="get_resource_by_id-source">
+            <pre><span class="ruby-comment"># File src/models/question.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_resource_by_id</span>(<span class="ruby-identifier">id</span>)
+  {
+    <span class="ruby-value">id:</span> <span class="ruby-identifier">id</span>,
+    <span class="ruby-value">question:</span> <span class="ruby-constant">QUESTIONS</span>[<span class="ruby-identifier">id</span>][<span class="ruby-string">&#39;question&#39;</span>],
+    <span class="ruby-value">answers:</span> <span class="ruby-constant">QUESTIONS</span>[<span class="ruby-identifier">id</span>][<span class="ruby-string">&quot;Answers&quot;</span>],
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_scores" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_scores</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>Gets the scores stored in the table &#39;HighScores&#39;, sorts them and puts them in a format ready to become a JSON</pre>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>The entries of the table &#39;HighScores&#39; sorted and formated</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="get_scores-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_scores</span>
+  <span class="ruby-identifier">items</span> = <span class="ruby-constant">DYNAMODB</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-value">table_name:</span> <span class="ruby-constant">TABLE_NAME</span>).<span class="ruby-identifier">items</span>
+  <span class="ruby-identifier">sort_items</span>(<span class="ruby-identifier">items</span>)
+  <span class="ruby-identifier">make_result_list</span>(<span class="ruby-identifier">items</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_bad_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_bad_method</span><span
+            class="method-args">(method)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles unsuccesful requests to insert</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>A response with a 400 code and a message notifying that their request</p>
+</dd></dl>
+
+<p>was wrong and could not be inserted into&#39;HighScores&#39;</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_bad_method-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_bad_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">make_response</span>(<span class="ruby-constant">HttpStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">METHOD_NOT_ALLOWED</span>,
+    {<span class="ruby-value">message:</span> <span class="ruby-node">&quot;Method not supported: #{method}&quot;</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_bad_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_bad_request</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles unsuccesful requests to insert</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>A response with a 400 code and a message notifying that their request</p>
+</dd></dl>
+
+<p>was wrong and could not be inserted into&#39;HighScores&#39;</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_bad_request-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_bad_request</span>
+  <span class="ruby-identifier">make_response</span>(<span class="ruby-constant">HttpStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">BAD_REQUEST</span>,
+    {<span class="ruby-value">message:</span> <span class="ruby-string">&#39;Bad request (invalid input)&#39;</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_get</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles get HTTP Methods</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>A response with a 200 code and all the rows in the table &#39;HighScores&#39;</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_get-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_get</span>
+  <span class="ruby-identifier">make_response</span>(<span class="ruby-constant">HttpStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">OK</span>, <span class="ruby-identifier">get_scores</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_post" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_post</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles Post HTTP Methods</p>
+<dl class="rdoc-list note-list"><dt>Returns
+<dd>
+<p>A response with a 201 code and a message notifying that a row was succesfully inserted</p>
+</dd></dl>
+
+<p>into&#39;HighScores&#39;</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_post-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_post</span>
+  <span class="ruby-identifier">make_response</span>(<span class="ruby-constant">HttpStatus</span><span class="ruby-operator">::</span><span class="ruby-constant">CREATED</span>,
+    {<span class="ruby-value">message:</span> <span class="ruby-string">&#39;Resource created or updated&#39;</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lambda_handler" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lambda_handler</span><span
+            class="method-args">(event:, context:)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles the client&#39;s request based on what HTTP request it send and the parameters they sent</p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>event
+<dd>
+<p>Contains the HTTP method that the user sent and constains the parameters the user sent</p>
+</dd></dl>
+</dd><dt>Returns
+<dd>
+<p>An object with the statusCode and a JSON, a notification or an error.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="lambda_handler-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lambda_handler</span>(<span class="ruby-value">event:</span>, <span class="ruby-value">context:</span>)
+  <span class="ruby-identifier">method</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">dig</span>(<span class="ruby-string">&#39;requestContext&#39;</span>, <span class="ruby-string">&#39;http&#39;</span>, <span class="ruby-string">&#39;method&#39;</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">method</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;GET&#39;</span>
+    <span class="ruby-identifier">handle_get</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;POST&#39;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">store_score_item</span>(<span class="ruby-identifier">event</span>[<span class="ruby-string">&#39;body&#39;</span>])
+      <span class="ruby-identifier">handle_post</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">handle_bad_request</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">handle_bad_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-make_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_response</span><span
+            class="method-args">(code, body)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generates a response for the lambda to return to its client</p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>code
+<dd>
+<p>The HTTP code that indicate the client if the transaction was successful or not</p>
+</dd><dt>body
+<dd>
+<p>the response the user expects it may be a question or it may be an error explaining what went wrong</p>
+</dd></dl>
+</dd><dt>Returns
+<dd>
+<p>An object with the statusCode and a JSON  or an error.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="make_response-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">make_response</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">body</span>)
+  {
+    <span class="ruby-value">statusCode:</span> <span class="ruby-identifier">code</span>,
+    <span class="ruby-value">headers:</span> {
+      <span class="ruby-string">&quot;Content-Type&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;application/json; charset=utf-8&quot;</span>
+    },
+    <span class="ruby-value">body:</span> <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">body</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-make_result_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_result_list</span><span
+            class="method-args">(items)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generates an object with all the entries in the Dynamo table &#39;HighScores&#39; in a list</p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>items
+<dd>
+<p>The entries in the table &#39;HighScores&#39;</p>
+</dd></dl>
+</dd><dt>Returns
+<dd>
+<p>An object all the entries in &#39;HighScores&#39; in list format with the attributes. User, Right, Total, Time</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="make_result_list-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">make_result_list</span>(<span class="ruby-identifier">items</span>)
+  <span class="ruby-identifier">items</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> {
+      <span class="ruby-string">&#39;User&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&#39;Username&#39;</span>],
+      <span class="ruby-string">&#39;Right&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&#39;Right&#39;</span>].<span class="ruby-identifier">to_i</span>,
+      <span class="ruby-string">&#39;Total&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&#39;Total&#39;</span>].<span class="ruby-identifier">to_i</span>,
+      <span class="ruby-string">&#39;Time&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&#39;EndTimestamp&#39;</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&#39;timestamp&#39;</span>].<span class="ruby-identifier">to_i</span>
+    }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-make_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_url</span><span
+            class="method-args">(host, path, index)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates an url in string format</p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>host
+<dd>
+<p>The host of the service</p>
+</dd><dt>path
+<dd>
+<p>The path in the host</p>
+</dd><dt>index
+<dd>
+<p>The index of the question</p>
+</dd></dl>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="make_url-source">
+            <pre><span class="ruby-comment"># File src/models/checkAnswer.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">make_url</span>(<span class="ruby-identifier">host</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">index</span>)
+    <span class="ruby-node">&quot;https://#{host}#{path}?id=#{index}&amp;answer=#{answer}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_body" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_body</span><span
+            class="method-args">(body)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parses the body given by the client and checks if it has the keys &#39;Username&#39; and &#39;timestamp&#39; </p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>body
+<dd>
+<p>The body of the clients request, expected to contain Username&#39; and &#39;timestamp&#39;,  endTimeStamp, Right and Total</p>
+</dd></dl>
+</dd><dt>Returns
+<dd>
+<p>The data formatted so that it can be inserted into the table &#39;HighScore&#39;</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_body-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_body</span>(<span class="ruby-identifier">body</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">body</span>)
+      <span class="ruby-identifier">data</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;Username&#39;</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;timestamp&#39;</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">data</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">ParserError</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sort_items" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sort_items</span><span
+            class="method-args">(items)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sorts the items obtained from the table &#39;HighScores&#39;</p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>items
+<dd>
+<p>The entries in the table &#39;HighScores&#39;</p>
+</dd></dl>
+</dd><dt>Returns
+<dd>
+<p>The entries of the table &#39;HighScores&#39; sorted</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="sort_items-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sort_items</span>(<span class="ruby-identifier">items</span>)
+  <span class="ruby-identifier">items</span>.<span class="ruby-identifier">sort!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>[<span class="ruby-string">&#39;Right&#39;</span>] <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>[<span class="ruby-string">&#39;Right&#39;</span>]}
+  <span class="ruby-identifier">items</span>.<span class="ruby-identifier">sort!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>[<span class="ruby-string">&#39;Total&#39;</span>] <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>[<span class="ruby-string">&#39;Total&#39;</span>]}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_score_item" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_score_item</span><span
+            class="method-args">(body)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts a wow in the Table &#39;HighScore&#39;</p>
+<dl class="rdoc-list note-list"><dt>Parameters
+<dd><dl class="rdoc-list note-list"><dt>body
+<dd>
+<p>The body of the clients request, expected to contain Username&#39; and &#39;timestamp&#39;,  endTimeStamp, Right and Total</p>
+</dd></dl>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="store_score_item-source">
+            <pre><span class="ruby-comment"># File src/models/HighScore.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">store_score_item</span>(<span class="ruby-identifier">body</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">parse_body</span>(<span class="ruby-identifier">body</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>
+    <span class="ruby-constant">DYNAMODB</span>.<span class="ruby-identifier">put_item</span>(<span class="ruby-value">table_name:</span> <span class="ruby-constant">TABLE_NAME</span>, <span class="ruby-value">item:</span> <span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -44,7 +44,6 @@ end
 #          explaining what went wrong
 # Returns:: An object with the statusCode and a JSON that contains what is returned in +check_resource_by_id(id, answer)+ or an error.
 def make_response(code, body)
-def make_response(code, body)
   {
     statusCode: code,
     headers: {

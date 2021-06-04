@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Application+Design+and+Architecture">Application Design and Architecture</a>
+    <li><a href="#label-Installing+and+Running+the+Application">Installing and Running the Application</a>
+    <li><a href="#label-4-2B1+Architectural+View+Model">4+1 Architectural View Model</a>
+    <li><a href="#label-Logical+View">Logical View</a>
+    <li><a href="#label-Process+View">Process View</a>
+    <li><a href="#label-Development+View">Development View</a>
+    <li><a href="#label-Physical+View">Physical View</a>
+    <li><a href="#label-Scenarios">Scenarios</a>
+    <li><a href="#label-Patterns+Used">Patterns Used</a>
+    <li><a href="#label-Acknowledments">Acknowledments</a>
+    <li><a href="#label-References">References</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<h1 id="label-Application+Design+and+Architecture">Application Design and Architecture<span><a href="#label-Application+Design+and+Architecture">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Leonardo Castillejos Vite (A01375332), Oscar Zuniga Lara (A01654827)</p>
+</dd><dt>Date
+<dd>
+<p>Jun 4, 2021</p>
+</dd></dl>
+
+<p>Here we describe the documentation of a quiz application using microservices, lambda, sinatra and dynamodb.</p>
+
+<p>If you haven’t done so already, install the following gems. At the terminal type:</p>
+
+<pre>$ gem install hanna-nouveau
+$ gem install sinatra
+$ gem install faraday
+$ gem install aws-sdk-dynamodb
+$ gem install time</pre>
+
+<p>The directory structure for the application and its documentation is as follows:</p>
+
+<pre>taxEvation/
+      ├─ doc/                        Folder produced by RDoc.
+      ├─ img/                        Folder for the documentation’s image files.
+      └─ src/                        Folder for the application’s source code.
+           ├─ public/                Folder for the server’s public documents.
+           │       └─ stylesheets/   Folder for the application’s CSS files.
+           │       └─ boostrap/      Folder for boostrap
+           ├─ models/                Folder for the application’s models.
+           └─ views/                 Folder for the application’s views (ERB files).</pre>
+
+<p>The <code>builddocs.sh</code> shell script contains the required instructions to produce the RDoc documentation. Run the script from the <code>taxEvation</code> directory, typing at the terminal:</p>
+
+<pre>   $ bash builddocs.sh
+
+The root of the documentation should now be available at: +taxEvation/doc/index.html+</pre>
+
+<p>Use any web browser to see the result.</p>
+
+<h3 id="label-Installing+and+Running+the+Application">Installing and Running the Application<span><a href="#label-Installing+and+Running+the+Application">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Use this section to explain any details on how to install and run you application.</p>
+
+<p>You need to have Ruby 2.6 or better and the <a href="http://www.sinatrarb.com/">Sinatra</a> gem installed in your system to run the taxEvation web application.  You also need to have installed the {faraday} [<a href="https://github.com/lostisland/faraday">github.com/lostisland/faraday</a>] gem installed in your system to run the taxEvation web application.  You also need to have installed the {aws-sdk-dynamodb} [<a href="https://rubygems.org/gems/aws-sdk-dynamodb/versions/1.0.0.rc7">rubygems.org/gems/aws-sdk-dynamodb/versions/1.0.0.rc7</a>] gem installed in your system to run the taxEvation web application.  You also need to have installed the {time} gem installed in your system to run the taxEvation web application. </p>
+
+<p>To run the server type the following command at the terminal from the <code>taxEvation/src</code> directory:</p>
+
+<pre>$ ruby  server.rb</pre>
+
+<p>Afterwards, point your web browser the server’s root URL.</p>
+
+<h3 id="label-4-2B1+Architectural+View+Model">4+1 Architectural View Model<span><a href="#label-4-2B1+Architectural+View+Model">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h3 id="label-Logical+View">Logical View<span><a href="#label-Logical+View">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Our Classes are defines bye the session that every user have every time he connects to our service, it saves all the necessary data and uses  the lambda classes highscore, checkAnswers and questions to retrieve data from a dynamodb called highscores. <img src="img/logicalView.png"></p>
+
+<h3 id="label-Process+View">Process View<span><a href="#label-Process+View">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The process our web application will offer two possible starting options, see highscores and starting a quiz, this will ask for user, number of questions, will generate a list of  questions, retrieve a question, answer a question, grade a question, ask another question. If there are no more questions it will show a grade and offer to upload your grade or not.</p>
+
+<p><img src="img/processView.png"></p>
+
+<h3 id="label-Development+View">Development View<span><a href="#label-Development+View">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Our application is formed by 4 parts:</p>
+
+<p>server.rb: is the principal ruby function.</p>
+
+<p>models: it includes all the lambda functions storage: the dynamodb table public: all the graphical utilities. vies: here we have all our view we use to navigate our application</p>
+
+<p><img src="img/developmentView.png"></p>
+
+<h3 id="label-Physical+View">Physical View<span><a href="#label-Physical+View">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Our application is formed physically by 2 parts, the client pc and aws servers. pc client: it only needs a web browser. aws servers: it runs the web server, manages the storage and and necessary lambda functions.</p>
+
+<p><img src="img/physicalView.png"></p>
+
+<h3 id="label-Scenarios">Scenarios<span><a href="#label-Scenarios">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Our application has 3 possible scenarios:</p>
+<ul><li>
+<p>see highscores: the user only wants to see the highscores</p>
+</li><li>
+<p>answer quiz and upload grade: the user will answer the quiz and upload the grade.</p>
+</li><li>
+<p>answer quiz and not upload grade: the user will answer the quiz and will not upload the grade.</p>
+</li></ul>
+
+<p><img src="img/scenarios.png"></p>
+
+<h3 id="label-Patterns+Used">Patterns Used<span><a href="#label-Patterns+Used">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>We used the following patters:</p>
+<ul><li>
+<p><strong>Domain-Specific Language</strong>: The <code>server.rb</code> file consists of a series of Sinatra routes. Sinatra is a DSL for creating web applications in Ruby.</p>
+</li><li>
+<p><strong>Model-View-Controller</strong>: The application follows the classical web implementation of the MVC architectural pattern. The models (<code>.rb</code> files) and views (<code>.erb</code> files) are stored in the corresponding <code>models</code> but they are there only for </p>
+</li></ul>
+
+<p>documentation purposes but they are stored and executed in aws lambda, <code>views</code> directory. The controller is contained in <code>server.rb</code> file.</p>
+
+<h3 id="label-Acknowledments">Acknowledments<span><a href="#label-Acknowledments">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>BBBootstrap Team (templates used) Fernando Silva (for mental health supporting)</p>
+
+<h3 id="label-References">References<span><a href="#label-References">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li><ol style="list-style-type: upper-alpha"><li>
+<p>Fowler. UML Distilled: A Brief Guide to the Standard <a href="Object.html"><code>Object</code></a> Modeling Language, 3rd Edition. Addison-Wesley, 2003.</p>
+</li></ol>
+</li><li><ol style="list-style-type: upper-alpha"><li>
+<p>Gamma, R. Helm, R. Johnson, J. M. Vlissides. Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley, 1994.</p>
+</li></ol>
+</li><li><ol style="list-style-type: upper-alpha"><li>
+<p>Olsen. Design Patterns in Ruby. Addison-Wesley, 2007.</p>
+</li></ol>
+</li><li>
+<p>Ruby-Doc.org. RDoc Markup Reference. <a href="http://ruby-doc.org/stdlib-3.0.0/libdoc/rdoc/rdoc/RDoc/Markup.html">ruby-doc.org/stdlib-3.0.0/libdoc/rdoc/rdoc/RDoc/Markup.html</a> Accessed May 7, 2021.</p>
+</li><li>
+<p>Ruby For Beginners. (2016). Sessions in Sinatra. 6/3/2021, de webapps-for-beginners Sitio web: <a href="https://webapps-for-beginners.rubymonstas.org/sessions/sinatra_sessions.html">webapps-for-beginners.rubymonstas.org/sessions/sinatra_sessions.html</a></p>
+</li><li>
+<p>Bootstrap. (2021). Heroes · Bootstrap v5.0. 6/3/2021, de Bootstrap Sitio web: <a href="https://getbootstrap.com/docs/5.0/examples/heroes">getbootstrap.com/docs/5.0/examples/heroes</a>/</p>
+</li></ul>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
