@@ -37,33 +37,32 @@
         <div class="col-md-10 col-lg-10">
             <div class="border">
                 <div class="question bg-white p-3 border-bottom">
-                    <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                        
-                        <h4>Ruby Quiz</h4><span>(1 of 20)</span>
-                        
-                    </div>
-                </div>
-                <div class="question bg-white p-3 border-bottom">
                     <div class="d-flex flex-row align-items-center question-title">
-                        <h3 class="text-danger">A.</h3>
-                        <h5 class="mt-1 ml-2"><%= @question %></h5>
+                        <h3 class="text-danger">Felicitaciones, has terminado</h3>
                     </div>
-                    <form method="post" action="/siguientePregunta">
-                    
-                    <%if @rightData  %>
-                      <h6>You are correct</h6>
-                    <%else %>
-                      <h6>You are incorrect, the correct answer is:</h6>
-                    <% end %>
-                    
-                    <div class="ans ml-2">
-                        <input type = "radio" class="btn-check" name = "option" id=<%= @correct %> value=<%=  @correct %>>
-                        <label class = "btn btn-danger" for = <%=  @correct %>> <%=  @correct %></label>
+                      <div class="d-flex flex-row align-items-center question-title">
+                        <h5 class="mt-1 ml-2"> Tus resultados son:</h5>
                     </div>
-                  
-                  
+                    
+                     <div class="d-flex flex-row align-items-center question-title">
+                        <h6 class="mt-1 ml-2">Usuario:  <%= @usuario %></h6>
+                    </div>
+                     <div class="d-flex flex-row align-items-center question-title">
+                        <h6 class="mt-1 ml-2">Calificacion:  <%= @score %> / <%= @cantidadPreguntas%></h6>
+                    </div>
+                     <div class="d-flex flex-row align-items-center question-title">
+                        <h6 class="mt-1 ml-2">Hora de inicio:  <%= @horaInicio %></h6>
+                    </div>
+                    
+                     <div class="d-flex flex-row align-items-center question-title">
+                        <h6 class="mt-1 ml-2">Hora Final:  <%= @horaFinal %></h6>
+                    </div>
+                       
+                    
+                    
+                    <form method="get" action="/highscore">
                 </div>
-                <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><button class="btn btn-primary border-success align-items-center btn-success" type="submit">Next<i class="fa fa-angle-right ml-2"></i></button></div>
+                <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><button class="btn btn-primary border-success align-items-center btn-success" type="submit">Publicar Resultados<i class="fa fa-angle-right ml-2"></i></button></div>
                 </form>
             </div>
         </div>

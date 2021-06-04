@@ -10,7 +10,6 @@
   
     <meta charset="utf-8">
     <title>Home</title>
-    <link href="heroes.css" rel="stylesheet">
   </head>
   <body>
     
@@ -49,7 +48,7 @@
     <tr>
       <th scope="row">1</th>
       <td><%= highscore['User'] %></td>
-      <td><%= highscore['Right']%></td>
+      <td><%= highscore['Right']%> / <%= highscore['Total'] %></td>
       <td><%= (highscore['Time'] / 60) %> : <%= highscore['Time'] % 60 %></td>
     </tr>
     <% end %>
