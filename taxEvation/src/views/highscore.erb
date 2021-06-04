@@ -9,8 +9,7 @@
   
   
     <meta charset="utf-8">
-    <title>Ejemplo</title>
-    <link href="heroes.css" rel="stylesheet">
+    <title>Home</title>
   </head>
   <body>
     
@@ -22,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/ejemplo">Home</a>
+           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/highscore">Highscore</a>
@@ -31,22 +30,36 @@
   </div>
 </nav>
     <h1 class="visually-hidden">Heroes examples</h1>
+      <h1 class="display-5 fw-bold">Puntuaciones Altas</h1>
+      
+      
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Resultados</th>
+      <th scope="col">Tiempo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% counter = 0%>
+    <% @highscores.each do |highscore| %>
+    <% counter += 1 %>
+    <tr>
+      <th scope="row"><%=counter%></th>
+      <td><%= highscore['User'] %></td>
+      <td><%= highscore['Right']%> / <%= highscore['Total'] %></td>
+      <td><%= (highscore['Time'] / 60) %> : <%= highscore['Time'] % 60 %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="/sinatra.jpeg" alt="" width="200" height="138">
-    <h1 class="display-5 fw-bold">Iniciar Quiz</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">En el siguiente quiz evaluaremos tus conocimientos sobre patrones de diseño y refactorización de software en Ruby.</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-danger btn-lg px-4 gap-3" onclick="location.href= '/quiz/1'">Intentar de nuevo</button>
-        <button type="button" class="btn btn-secondary btn-lg px-4" onclick="location.href= '/highscore'">Ver puntuaciones mas altas</button>
-      </div>
+
     </div>
   </div>
-  
-  
-  
-  
-    
   </body>
 </html>
+
+

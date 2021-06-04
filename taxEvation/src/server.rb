@@ -1,28 +1,32 @@
+# The Ruby Quiz App
+# Date: 03-June-2021
+# Author: Leonardo Castillejos
+#         Óscar Zúñiga
 require 'json'
 require 'faraday'
 require 'sinatra'
 require 'time'
+require 'aws-sdk-dynamodb'
 
-URL = 'https://kss1ggcwh4.execute-api.us-west-2.amazonaws.com/default/books'
+
+#BASE URL for the microservice that gets the questions from AWS
 BASE = 'https://3r690kl9q2.execute-api.us-east-1.amazonaws.com/default/Question'
-
+#BASE URL for the microservice that checks if the answer is correct
 lambdaCheckAnswer = "https://t4upfkbyug.execute-api.us-east-1.amazonaws.com/default/checkAnswer"
+#BASE URL for the microservice that allows to get the scores and write themfrom Dynamp
 lambdaHighscore = "https://8reoi7vn9l.execute-api.us-east-1.amazonaws.com/default/HighScore"
 
-
+#Allows for sessions to be used by server.rb
 enable :sessions
 
+#Home route, shows the index
 get '/' do
   erb :index
 end
 
-
-get '/ejemplo' do
-  @mensaje = 'Esta es una prueba.'
-  @info = ['primavera', 'verano', 'otoño', 'invierno']
-  erb :ejemplo
-end
-
+#Route for the questions, retrieves the questions from aws
+# Parameters::
+#   id:: The id of the question that will be retrieved from aws
 get '/quiz/:id' do
   @idPregunta =  params[:id]
   
@@ -46,25 +50,29 @@ get '/quiz/:id' do
   erb :quiz
 end
 
+#Route that shows the final results of a quiz attempt
 get '/checkResults' do
     @usuario = session[:usuario]
     @cantidadPreguntas = session[:cantidadPreguntas]
     @score = session[:score]
     @horaInicio = session[:horaInicio]
     @horaFinal = Time.now.getutc
+    
   erb :checkResults
 end
 
-
+#Route for supporting function to correctly create the URL using the session
 post'/submitAnswer' do
-  puts "sumbit answer aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   @answer = params[:option]
   @idPregunta = session[:idPregunta]
     redirect '/checkAnswer/' + @idPregunta.to_s + '/' + @answer.to_s
 end
 
+#Route that invokes the screen where the user receives feedback
+# Parameters::
+#   id:: The id of the question that will be checked from aws
+#   answer:: The answer the user choose
 get'/checkAnswer/:id/:answer' do
-  puts "checkAnswer aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   parameters = '?id=' + params[:id] + "&answer=" + params[:answer] 
   questionURL = lambdaCheckAnswer + parameters
   connection = Faraday.new(url: questionURL)
@@ -83,14 +91,14 @@ get'/checkAnswer/:id/:answer' do
     @correct = data['correct']
   end
   
-  if @correct
+  if @rightData
     session[:score] = session[:score] + 1
   end
     erb :checkAnswer 
 end
 
+#Route for supporting function that has the logic to know when the user has answered all the questions
 post '/siguientePregunta' do
-
     if !session[:listaPreguntas].empty? 
       @siguientePregunta = session[:listaPreguntas].pop
       session[:preguntaActual] = session[:preguntaActual] + 1
@@ -101,15 +109,7 @@ post '/siguientePregunta' do
 
 end
 
-get '/resultado/:score' do
-  @score = params[:score]
-  @mensaje = 'Esta es una prueba.'
-  @info = ['primavera', 'verano', 'otoño', 'invierno']
-  erb :resultado
-end
-
-
-
+#Route that invokes a supporting function that does the apps setup
 post'/iniciaQuiz' do
   cantidadPreguntas = params[:customRange1]
   cantidadPreguntas =Integer(cantidadPreguntas)
@@ -128,7 +128,7 @@ post'/iniciaQuiz' do
   redirect '/quiz/' + primerPregunta.to_s
 end
 
-
+#Route thatt invokes the highscore screen
 get'/highscore' do
     connection = Faraday.new(url:lambdaHighscore)
     response = connection.get
@@ -141,6 +141,20 @@ get'/highscore' do
     erb :highscore
 end
 
+#Route that invokes lambda to upload the user score 
 post '/postHighscore' do
+  dynamodb = Aws::DynamoDB::Client.new
+  
+  new_item = {
+    Username: session[:usuario],
+    timestamp: session[:horaInicio].to_i,
+    EndTimestamp: Time.now.getutc.to_i,
+    Right: session[:score],
+    Total: session[:cantidadPreguntas]
+  }
+  
+  dynamodb.put_item(table_name: 'HighScores', item: new_item)
+  
+  redirect '/highscore'
   
 end
